@@ -43,38 +43,30 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 220 13% 18%;
+    --foreground: 95 38% 70%;
+    --card: 220 13% 18%;
+    --card-foreground: 95 38% 70%;
+    --popover: 220 13% 22%;
+    --popover-foreground: 95 38% 70%;
+    --primary: 207 82% 65%;
+    --primary-foreground: 220 13% 18%;
+    --secondary: 220 13% 22%;
+    --secondary-foreground: 95 38% 70%;
+    --muted: 220 13% 22%;
+    --muted-foreground: 220 13% 50%;
+    --accent: 207 82% 65%;
+    --accent-foreground: 220 13% 18%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --border: 220 13% 25%;
+    --input: 220 13% 25%;
+    --ring: 207 82% 65%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -84,5 +76,24 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    min-height: 100vh;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .blinking-cursor {
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: hsl(var(--foreground));
   }
 }
