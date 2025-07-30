@@ -10,6 +10,7 @@ import { Whoami } from "./outputs/whoami";
 import { Skills } from "./outputs/skills";
 import { Experience } from "./outputs/experience";
 import { Ascii } from "./outputs/ascii";
+import { ThemeToggle } from "../theme-toggle";
 
 type HistoryItem = {
   id: number;
@@ -65,12 +66,15 @@ export function Terminal() {
           <Icons.logo className="h-6 w-6 text-primary" />
           <h1 className="text-lg font-semibold">Shellfolio</h1>
         </div>
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          <span>ONLINE</span>
+        <div className="flex items-center gap-2 text-xs">
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span>ONLINE</span>
+          </div>
+          <ThemeToggle />
         </div>
       </header>
 
