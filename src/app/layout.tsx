@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from '@/components/theme-provider';
+import { Background } from '@/components/shellfolio/background';
 
 export const metadata: Metadata = {
   title: 'Shellfolio',
@@ -27,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Background />
           {children}
           <Toaster />
         </ThemeProvider>

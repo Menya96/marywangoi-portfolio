@@ -77,6 +77,8 @@ body {
   body {
     @apply bg-background text-foreground;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
   }
   html {
     @apply scroll-smooth;
@@ -87,6 +89,30 @@ body {
   .blinking-cursor {
     animation: blink 1s step-end infinite;
   }
+
+  .binary-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0.1;
+    color: hsl(var(--primary) / 0.5);
+  }
+
+  .dark .binary-background {
+    opacity: 0.05;
+  }
+
+  .binary-line {
+    white-space: nowrap;
+    position: absolute;
+    animation-name: flow;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
 }
 
 @keyframes blink {
@@ -95,5 +121,14 @@ body {
   }
   50% {
     border-color: hsl(var(--foreground));
+  }
+}
+
+@keyframes flow {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100vw);
   }
 }
