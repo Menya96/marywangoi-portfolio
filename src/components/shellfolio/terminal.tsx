@@ -11,6 +11,7 @@ import { Skills } from "./outputs/skills";
 import { Experience } from "./outputs/experience";
 import { Ascii } from "./outputs/ascii";
 import { ThemeToggle } from "../theme-toggle";
+import { BootSequence } from "./boot-sequence";
 
 type HistoryItem = {
   id: number;
@@ -20,6 +21,7 @@ type HistoryItem = {
 
 export function Terminal() {
   const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [isBootFinished, setIsBootFinished] = useState(false);
   const [isWelcomeFinished, setIsWelcomeFinished] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -79,7 +81,11 @@ export function Terminal() {
       </header>
 
       <div className="flex-grow space-y-6 overflow-y-auto pr-2">
-        <Welcome onFinished={() => setIsWelcomeFinished(true)} />
+        {!isBootFinished ? (
+          <BootSequence onFinished={() => setIsBootFinished(true)} />
+        ) : (
+          <Welcome onFinished={() => setIsWelcomeFinished(true)} />
+        )}
 
         {history.map(({ id, command, Output }) => (
           <div key={id}>
