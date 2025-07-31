@@ -1,5 +1,6 @@
+"use client";
+
 import { whoamiData, socials } from "@/lib/data";
-import { TypingText } from "../typing-text";
 import { Github, Linkedin } from "lucide-react";
 import { useState, useEffect } from 'react';
 
@@ -27,15 +28,26 @@ const InfoLine = ({ label, value, delay }: { label: string; value: string; delay
 };
 
 export const Whoami = () => {
+  const [bioVisible, setBioVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setBioVisible(true), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <div className="space-y-2">
       <InfoLine label="USER:" value={whoamiData.name} delay={0} />
       <InfoLine label="TITLE:" value={whoamiData.title} delay={300} />
       <InfoLine label="STATUS:" value={whoamiData.status} delay={600} />
       <InfoLine label="LOCATION:" value={whoamiData.location} delay={900} />
-      <div className="pt-2">
-        <TypingText text={whoamiData.bio} speed={10} />
-      </div>
+      
+      {bioVisible && (
+        <div className="pt-2">
+          <p className="whitespace-pre-wrap">{whoamiData.bio}</p>
+        </div>
+      )}
+
       <div className="flex items-center gap-4 pt-4">
         {socials.map((social) => (
           <a
