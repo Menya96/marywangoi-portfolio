@@ -69,7 +69,7 @@ export function Terminal() {
   return (
     <div className="rounded-lg border bg-card/20 shadow-lg h-[90vh] flex flex-col">
       <header className="flex items-center justify-between border-b p-4 md:p-6 flex-shrink-0">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <Icons.logo className="h-6 w-6 text-primary" />
           <h1 className="text-lg font-semibold">Shellfolio</h1>
         </div>

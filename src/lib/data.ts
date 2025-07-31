@@ -12,27 +12,44 @@ export const skills = [
   { name: "Terraform/IaC", level: 88 },
   { name: "Docker/Kubernetes", level: 85 },
   { name: "Python/Bash", level: 80 },
-  { name: "Observability", level: 78 },
+  { name: "Observability", level: 88 },
 ];
 
 export const experiences = [
   {
-    role: "Senior Frontend Engineer",
-    company: "Tech Innovators Inc.",
-    period: "2020 - Present",
-    description: "Led the development of a design system and architected a scalable frontend for a flagship product, improving performance by 40%.",
+    role: "Senior Devops Engineer",
+    company: "Agile Business Solutions Limited",
+    period: "Oct, 2024 - Present",
+    description: ["Managed Azure Kubernetes Service (AKS) clusters for production workloads, implementing container orchestration with Docker and Helm charts for 5+ microservices applications.",
+      " Built and optimized CI/CD pipelines using Azure DevOps and GitOps methodologies, achieving 95% deployment success rates and reducing time-to-production by 50%.",
+      "Established comprehensive monitoring and observability solutions using Prometheus, Grafana, and ELK Stack, enabling proactive incident response and maintaining SLO/SLI targets across microservices architecture."
+    ]
   },
   {
-    role: "Software Engineer",
-    company: "Creative Solutions",
-    period: "2018 - 2020",
-    description: "Developed and maintained client-facing web applications using React, contributing to a 25% increase in user engagement.",
+    role: "Devops Tecnical Writer",
+    company: "Medium",
+    period: "April, 2024 - Present",
+    description: ["Created high-impact technical content on DevOps best practices, cloud architecture, and infrastructure automation, generating 5,000+ monthly readers and establishing thought leadership in the DevOps community",
+      "Developed comprehensive step-by-step tutorials for AWS, Azure, Kubernetes, Docker, and Terraform implementations that received 200+ positive comments and were cited in 15+ technical forums",
+    ]
   },
   {
-    role: "Junior Developer",
-    company: "Startup Hub",
-    period: "2016 - 2018",
-    description: "Worked in an agile team to build and test new features for a growing SaaS platform.",
+    role: "Devops Engineer",
+    company: "Techworld with Nana",
+    period: "August, 2023 - September, 2024",
+    description: ["Architected and managed production Kubernetes clusters on AWS EKS supporting 500+ concurrent users, achieving 99.95% uptime through proactive monitoring with Prometheus and Grafana",
+      " Implemented Infrastructure as Code using Terraform for multi-environment deployments across AWS, reducing infrastructure provisioning time by 60% and ensuring consistent deployments",
+      "Implemented comprehensive CI/CD pipelines using Jenkins and GitHub Actions, integrating automated testing and security scanning to improve code quality and deployment reliability"
+    ]
+  },
+  {
+    role: "Software Developerr",
+    company: "Radio Africa Group",
+    period: "March, 2023 - August, 2024",
+    description: ["Built and maintained Docker containerization pipeline for development and testing environments, ensuring consistency across 5+ microservices and eliminating 'works on my machine' issues for the entire development team",
+      "Developed full-stack web applications with CI/CD integration, implementing automated testing frameworks that achieved 90% code coverage and reduced release cycles from weeks to days",
+      " Established Git branching strategy and implemented GitHub Actions workflows that automated code quality checks, security scanning, and deployment processes, increasing team velocity by 35%",
+    ]
   },
 ];
 
@@ -43,6 +60,6 @@ export const socials = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/your-username",
+    url: "https://www.linkedin.com/in/marywangoi/",
   },
 ];

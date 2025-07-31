@@ -1,10 +1,22 @@
 import { experiences } from "@/lib/data";
 import { Separator } from "@/components/ui/separator";
+import { useState, useEffect } from 'react';
 
 export const Experience = () => {
+  const [visibleExperiences, setVisibleExperiences] = useState<number>(0);
+
+  useEffect(() => {
+    if (visibleExperiences < experiences.length) {
+      const timer = setTimeout(() => {
+        setVisibleExperiences((prev) => prev + 1);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [visibleExperiences, experiences.length]);
+
   return (
     <div className="space-y-6">
-      {experiences.map((exp, index) => (
+      {experiences.slice(0, visibleExperiences).map((exp, index) => (
         <div key={exp.company}>
           <div>
             <div className="flex justify-between items-baseline">
@@ -12,9 +24,13 @@ export const Experience = () => {
               <p className="text-sm text-muted-foreground">{exp.period}</p>
             </div>
             <h4 className="text-muted-foreground">{exp.role}</h4>
-            <p className="mt-2 text-sm">{exp.description}</p>
+            <ul className="mt-2 text-sm list-disc list-inside">
+              {exp.description.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
           </div>
-          {index < experiences.length - 1 && <Separator className="mt-6 bg-border/50" />}
+          {index < visibleExperiences - 1 && <Separator className="mt-6 bg-border/50" />}
         </div>
       ))}
     </div>
