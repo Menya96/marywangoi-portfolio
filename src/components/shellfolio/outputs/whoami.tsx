@@ -1,4 +1,4 @@
-import { bio, socials } from "@/lib/data";
+import { whoamiData, socials } from "@/lib/data";
 import { TypingText } from "../typing-text";
 import { Github, Linkedin } from "lucide-react";
 
@@ -7,11 +7,24 @@ const iconMap: Record<string, React.ReactNode> = {
   LinkedIn: <Linkedin />,
 };
 
+const InfoLine = ({ label, value }: { label: string; value: string }) => (
+  <div className="flex">
+    <span className="w-28 text-muted-foreground">{label}</span>
+    <span>{value}</span>
+  </div>
+);
+
 export const Whoami = () => {
   return (
-    <div>
-      <TypingText text={bio} speed={20} />
-      <div className="flex items-center gap-4 mt-4">
+    <div className="space-y-2">
+      <InfoLine label="USER:" value={whoamiData.name} />
+      <InfoLine label="TITLE:" value={whoamiData.title} />
+      <InfoLine label="STATUS:" value={whoamiData.status} />
+      <InfoLine label="LOCATION:" value={whoamiData.location} />
+      <div className="pt-2">
+        <TypingText text={whoamiData.bio} speed={10} />
+      </div>
+      <div className="flex items-center gap-4 pt-4">
         {socials.map((social) => (
           <a
             key={social.name}

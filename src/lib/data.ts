@@ -1,4 +1,10 @@
-export const bio = "Senior DevOps Engineer with a proven track record of transforming infrastructure into a competitive advantage. I specialize in cloud-native architecture, CI/CD automation, and optimizing AWS/Azure environments. I deliver tangible results: 50%+ cost reductions, 70% fewer incidents, and significant time savings through IaC and automation. I build zero-downtime, scalable systems and thrive on complex challenges and cross-functional collaboration. Open to remote opportunities.";
+export const whoamiData = {
+  name: "John Doe",
+  title: "Senior DevOps Engineer",
+  status: "Open to remote opportunities",
+  location: "Earth",
+  bio: "A proven track record of transforming infrastructure into a competitive advantage. I specialize in cloud-native architecture, CI/CD automation, and optimizing AWS/Azure environments. I deliver tangible results: 50%+ cost reductions, 70% fewer incidents, and significant time savings through IaC and automation.",
+};
 
 export const skills = [
   { name: "TypeScript", level: 95 },
