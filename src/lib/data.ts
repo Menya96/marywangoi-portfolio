@@ -7,12 +7,12 @@ export const whoamiData = {
 };
 
 export const skills = [
-  { name: "TypeScript", level: 95 },
-  { name: "React & Next.js", level: 90 },
-  { name: "Node.js", level: 85 },
-  { name: "UI/UX Design", level: 80 },
-  { name: "Generative AI", level: 75 },
-  { name: "SQL & NoSQL", level: 70 },
+  { name: "AWS/Azure", level: 95 },
+  { name: "CI/CD Automation", level: 90 },
+  { name: "Terraform/IaC", level: 88 },
+  { name: "Docker/Kubernetes", level: 85 },
+  { name: "Python/Bash", level: 80 },
+  { name: "Observability", level: 78 },
 ];
 
 export const experiences = [
