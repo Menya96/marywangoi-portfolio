@@ -87,8 +87,9 @@ body {
 
 @layer utilities {
   .blinking-cursor {
-    animation: blink 1s step-end infinite;
+    animation: simple-blink 1s infinite;
   }
+
 
   .binary-background {
     position: fixed;
@@ -98,12 +99,11 @@ body {
     height: 100vh;
     z-index: -1;
     overflow: hidden;
-    opacity: 0.1;
     color: hsl(var(--primary) / 0.5);
   }
 
   .dark .binary-background {
-    opacity: 0.05;
+    opacity: 0.08;
   }
 
   .binary-line {
@@ -112,23 +112,21 @@ body {
     animation-name: flow;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    
   }
 }
 
-@keyframes blink {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: hsl(var(--foreground));
-  }
+@keyframes simple-blink {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
+
 
 @keyframes flow {
   from {
     transform: translateX(-100%);
   }
   to {
-    transform: translateX(100vw);
+    transform: translateX(100vh);
   }
 }

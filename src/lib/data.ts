@@ -1,4 +1,4 @@
-export const bio = "I am a passionate and creative software engineer with a knack for building beautiful and functional user interfaces. I thrive on solving complex problems and turning ideas into reality. This terminal is a playground for my skills and a window into my professional world.";
+export const bio = "Senior DevOps Engineer with a proven track record of transforming infrastructure into a competitive advantage. I specialize in cloud-native architecture, CI/CD automation, and optimizing AWS/Azure environments. I deliver tangible results: 50%+ cost reductions, 70% fewer incidents, and significant time savings through IaC and automation. I build zero-downtime, scalable systems and thrive on complex challenges and cross-functional collaboration. Open to remote opportunities.";
 
 export const skills = [
   { name: "TypeScript", level: 95 },
@@ -27,5 +27,16 @@ export const experiences = [
     company: "Startup Hub",
     period: "2016 - 2018",
     description: "Worked in an agile team to build and test new features for a growing SaaS platform.",
+  },
+];
+
+export const socials = [
+  {
+    name: "GitHub",
+    url: "https://github.com/your-username",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/your-username",
   },
 ];

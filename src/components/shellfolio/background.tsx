@@ -7,7 +7,7 @@ const generateBinaryString = (length: number): string => {
 };
 
 export const Background = () => {
-  const [lines, setLines] = useState<{ id: number; top: number; duration: number; binary: string }[]>([]);
+  const [lines, setLines] = useState<{ id: number; top: number; duration: number; binary: string; left: number }[]>([]);
 
   useEffect(() => {
     const createLines = () => {
@@ -17,8 +17,9 @@ export const Background = () => {
       const newLines = Array.from({ length: lineCount }).map((_, i) => ({
         id: i,
         top: Math.random() * 100, // %
-        duration: 15 + Math.random() * 20, // 15s to 35s
+        duration: 15 + Math.random() * 50, // 15s to 35s
         binary: generateBinaryString(100 + Math.floor(Math.random() * 50)),
+        left: Math.random() * 100 // %
       }));
       setLines(newLines);
     }
@@ -37,9 +38,10 @@ export const Background = () => {
       {lines.map(line => (
         <div
           key={line.id}
-          className="binary-line"
+          className="binary-line text-foreground"
           style={{
             top: `${line.top}vh`,
+            left: `${line.left}%`,
             animationDuration: `${line.duration}s`,
             animationDelay: `${Math.random() * -line.duration}s` // Start at a random point
           }}
