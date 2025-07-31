@@ -1,37 +1,60 @@
 "use client";
 
+import { PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, RadarChart } from "recharts"
 import { skills } from "@/lib/data";
-import { Progress } from "@/components/ui/progress";
-import { useEffect, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart"
 
 export const Skills = () => {
+  const chartConfig = {
+    level: {
+      label: "Level",
+      color: "hsl(var(--accent))",
+    },
+  };
+  
   return (
-    <div>
-      <p>My current skill set:</p>
-      <ul className="mt-4 space-y-4">
-        {skills.map((skill) => (
-          <SkillItem key={skill.name} name={skill.name} level={skill.level} />
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-const SkillItem = ({ name, level }: { name: string; level: number }) => {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress(level), 500);
-    return () => clearTimeout(timer);
-  }, [level]);
-
-  return (
-    <li className="space-y-1">
-      <div className="flex justify-between text-sm">
-        <span>{name}</span>
-        <span className="text-muted-foreground">{level}%</span>
-      </div>
-      <Progress value={progress} className="h-2" />
-    </li>
+    <Card className="border-none shadow-none bg-transparent">
+      <CardHeader className="items-center pb-0 p-0">
+        <CardTitle>Skills Radar</CardTitle>
+        <CardDescription>
+          A visual representation of my proficiency.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="pb-0 p-0 mt-4">
+        <div className="mx-auto aspect-square h-80 w-80">
+          <ChartContainer config={chartConfig} className="w-full h-full">
+            <RadarChart
+              data={skills}
+              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+            >
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent hideLabel />}
+              />
+              <PolarGrid />
+              <PolarAngleAxis dataKey="name" tick={{ fill: 'hsl(var(--foreground))', fontSize: 12 }} />
+              <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
+              <Radar
+                dataKey="level"
+                fill="hsl(var(--accent))"
+                fillOpacity={0.6}
+                stroke="hsl(var(--accent))"
+              />
+            </RadarChart>
+          </ChartContainer>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
