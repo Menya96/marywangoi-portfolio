@@ -67,7 +67,7 @@ export function Terminal() {
   }, [history]);
 
   return (
-    <div className="rounded-lg border bg-card/20 shadow-lg h-[85vh] flex flex-col">
+    <div className="rounded-lg border bg-card/20 shadow-lg h-[90vh] flex flex-col">
       <header className="flex items-center justify-between border-b p-4 md:p-6 flex-shrink-0">
         <div className="flex items-center gap-2">
           <Icons.logo className="h-6 w-6 text-primary" />
