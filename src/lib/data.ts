@@ -1,8 +1,8 @@
 export const whoamiData = {
-  name: "John Doe",
+  name: "Mary Wangoi",
   title: "Senior DevOps Engineer",
   status: "Open to remote opportunities",
-  location: "Earth",
+  location: "Nairobi, Kenya",
   bio: "A proven track record of transforming infrastructure into a competitive advantage. I specialize in cloud-native architecture, CI/CD automation, and optimizing AWS/Azure environments. I deliver tangible results: 50%+ cost reductions, 70% fewer incidents, and significant time savings through IaC and automation.",
 };
 

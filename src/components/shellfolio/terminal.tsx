@@ -58,12 +58,17 @@ export function Terminal() {
   }, [commandMapWithHelp]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    const timer = setTimeout(() => {
+      if (bottomRef.current) {
+        bottomRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 50); // Added a small delay
+    return () => clearTimeout(timer);
   }, [history]);
 
   return (
-    <div className="rounded-lg border bg-card/20 shadow-lg p-4 md:p-6 min-h-[80vh] flex flex-col">
-      <header className="flex items-center justify-between border-b pb-2 mb-4">
+    <div className="rounded-lg border bg-card/20 shadow-lg min-h-[80vh] flex flex-col">
+      <header className="flex items-center justify-between border-b p-4 md:p-6 mb-4">
         <div className="flex items-center gap-2">
           <Icons.logo className="h-6 w-6 text-primary" />
           <h1 className="text-lg font-semibold">Shellfolio</h1>
@@ -80,7 +85,7 @@ export function Terminal() {
         </div>
       </header>
 
-      <div className="flex-grow space-y-6 overflow-y-auto pr-2">
+      <div className="flex-grow space-y-6 overflow-y-auto px-4 md:px-6">
         {!isBootFinished ? (
           <BootSequence onFinished={() => setIsBootFinished(true)} />
         ) : (
@@ -108,7 +113,7 @@ export function Terminal() {
       </div>
 
       {isWelcomeFinished && (
-        <footer className="mt-4 pt-4 border-t">
+        <footer className="mt-4 pt-4 border-t p-4 md:p-6">
           <p className="text-sm text-muted-foreground mb-2">Click a command to execute:</p>
           <div className="flex flex-wrap gap-2">
             {availableCommands.map((cmd) => (

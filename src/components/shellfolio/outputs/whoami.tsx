@@ -1,26 +1,38 @@
 import { whoamiData, socials } from "@/lib/data";
 import { TypingText } from "../typing-text";
 import { Github, Linkedin } from "lucide-react";
+import { useState, useEffect } from 'react';
 
 const iconMap: Record<string, React.ReactNode> = {
   GitHub: <Github />,
   LinkedIn: <Linkedin />,
 };
 
-const InfoLine = ({ label, value }: { label: string; value: string }) => (
-  <div className="flex">
-    <span className="w-28 text-muted-foreground">{label}</span>
-    <span>{value}</span>
-  </div>
-);
+const InfoLine = ({ label, value, delay }: { label: string; value: string; delay: number }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [delay]);
+
+  return visible ? (
+    <div className="flex">
+      <span className="w-28 text-muted-foreground">{label}</span>
+      <span>{value}</span>
+    </div>
+  ) : null;
+};
 
 export const Whoami = () => {
   return (
     <div className="space-y-2">
-      <InfoLine label="USER:" value={whoamiData.name} />
-      <InfoLine label="TITLE:" value={whoamiData.title} />
-      <InfoLine label="STATUS:" value={whoamiData.status} />
-      <InfoLine label="LOCATION:" value={whoamiData.location} />
+      <InfoLine label="USER:" value={whoamiData.name} delay={0} />
+      <InfoLine label="TITLE:" value={whoamiData.title} delay={300} />
+      <InfoLine label="STATUS:" value={whoamiData.status} delay={600} />
+      <InfoLine label="LOCATION:" value={whoamiData.location} delay={900} />
       <div className="pt-2">
         <TypingText text={whoamiData.bio} speed={10} />
       </div>
