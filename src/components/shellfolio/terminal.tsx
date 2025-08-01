@@ -9,6 +9,7 @@ import { Welcome } from "./outputs/welcome";
 import { Whoami } from "./outputs/whoami";
 import { Skills } from "./outputs/skills";
 import { Experience } from "./outputs/experience";
+import { Portfolio } from "./outputs/portfolio";
 import { Ascii } from "./outputs/ascii";
 import { ThemeToggle } from "../theme-toggle";
 import { BootSequence } from "./boot-sequence";
@@ -35,10 +36,11 @@ export function Terminal() {
     'whoami': <Whoami onFinished={scrollToBottom} />,
     'skills': <Skills />,
     'experience': <Experience onFinished={scrollToBottom} />,
+    'portfolio': <Portfolio onFinished={scrollToBottom} />,
     'generate_ascii_art': <Ascii />,
   }), [scrollToBottom]);
 
-  const availableCommands = useMemo(() => ['whoami', 'skills', 'experience', 'generate_ascii_art', 'help', 'clear'], []);
+  const availableCommands = useMemo(() => ['whoami', 'skills', 'experience', 'portfolio', 'generate_ascii_art', 'help', 'clear'], []);
   
   const commandMapWithHelp = useMemo(() => ({
     ...commandMap,

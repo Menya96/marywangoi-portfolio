@@ -53,6 +53,28 @@ export const experiences = [
   },
 ];
 
+export const projects = [
+  {
+    name: "Automated Cloud Provisioning System",
+    description: "Developed a self-service portal using Terraform and Python (Flask) that allowed development teams to provision their own AWS environments (EC2, S3, RDS) through a simple UI, reducing provisioning time from days to minutes.",
+    tags: ["Terraform", "AWS", "Python", "Flask", "CI/CD"],
+    url: "https://github.com/your-username/project-1",
+  },
+  {
+    name: "Kubernetes GitOps Implementation",
+    description: "Led the migration of a monolithic application to a microservices architecture on EKS, managed declaratively using FluxCD for GitOps. This improved deployment frequency by 4x and reduced production rollback incidents.",
+    tags: ["Kubernetes", "EKS", "FluxCD", "GitOps", "Docker"],
+    url: "https://github.com/your-username/project-2",
+  },
+  {
+    name: "Centralized Logging & Monitoring Platform",
+    description: "Architected and deployed a centralized observability platform using the ELK Stack (Elasticsearch, Logstash, Kibana) and Prometheus/Grafana, providing real-time insights into application performance and system health for over 50 services.",
+    tags: ["ELK Stack", "Prometheus", "Grafana", "Observability"],
+    url: "https://github.com/your-username/project-3",
+  },
+];
+
+
 export const socials = [
   {
     name: "GitHub",
