@@ -55,22 +55,34 @@ export const experiences = [
 
 export const projects = [
   {
-    name: "Automated Cloud Provisioning System",
-    description: "Developed a self-service portal using Terraform and Python (Flask) that allowed development teams to provision their own AWS environments (EC2, S3, RDS) through a simple UI, reducing provisioning time from days to minutes.",
-    tags: ["Terraform", "AWS", "Python", "Flask", "CI/CD"],
-    url: "https://github.com/your-username/project-1",
+    name: "Enterprise GitOps Pipeline",
+    description: "Built a GitOps-driven CI/CD pipeline with Jenkins, SonarQube, Docker, Kubernetes, and ArgoCD that reduced release cycles by 75% and caught 95% of defects pre-production. Implemented containerization strategies that reduced image sizes while improving security posture.",
+    tags: ["Jenkins", "SonarQube", "Docker", "Kubernetes", "ArgoCD", "CI/CD"],
+    url: "https://blog.devops.dev/building-an-end-to-end-ci-cd-pipeline-with-jenkins-7ef2205d7988",
   },
   {
-    name: "Kubernetes GitOps Implementation",
-    description: "Led the migration of a monolithic application to a microservices architecture on EKS, managed declaratively using FluxCD for GitOps. This improved deployment frequency by 4x and reduced production rollback incidents.",
+    name: "AWS EKS Microservices Platform",
+    description: "Designed and implemented a complete AWS EKS-based platform for Go microservices that reduced deployment time by 80% and enabled multiple daily releases. Created optimized Docker builds that reduced container size by 65%, while implementing GitOps workflows with Argo CD.",
     tags: ["Kubernetes", "EKS", "FluxCD", "GitOps", "Docker"],
-    url: "https://github.com/your-username/project-2",
+    url: "https://blog.devops.dev/comprehensive-devops-implementation-project-b5ae52c2bbfa",
   },
   {
-    name: "Centralized Logging & Monitoring Platform",
-    description: "Architected and deployed a centralized observability platform using the ELK Stack (Elasticsearch, Logstash, Kibana) and Prometheus/Grafana, providing real-time insights into application performance and system health for over 50 services.",
-    tags: ["ELK Stack", "Prometheus", "Grafana", "Observability"],
-    url: "https://github.com/your-username/project-3",
+    name: "Infrastructure as Code: AWS EKS & VPC",
+    description: "Developed modular Terraform infrastructure that reduced EKS cluster deployment time from days to under 15 minutes. Created reusable components for secure VPC configurations with multi-AZ architecture that accelerated future deployments by 80%.",
+    tags: ["ELK Stack", "Kubectl", "Terraform", "Git", "Jenkins"],
+    url: "https://mary-wangoi.medium.com/aws-eks-cluster-vpc-creation-using-terraform-35b82bcc9af6",
+  },
+  {
+    name: "AWS Cost Optimization: Automated EBS Snapshot Management",
+    description: "Built intelligent AWS Lambda cost optimization system that automated EBS snapshot lifecycle management, reducing storage costs by 60% and saving $2,000+ monthly. Implemented custom scheduling, retention policies, and automated cleanup processes while maintaining compliance and disaster recovery requirements.",
+    tags: ["AWS Lambda", "Python", "Boto3 Library", "Observability"],
+    url: "https://medium.com/pythons-gurus/aws-cost-optimization-using-lambda-1f03fa91a00a",
+  },
+  {
+    name: "Enterprise MERN Stack Containerization",
+    description: "Containerized MERN stack application with Docker Compose using multi-stage builds that reduced image sizes by 70%. Implemented production-ready configuration with health checks and automated deployment that cut complexity by 85% while enabling seamless scaling.",
+    tags: ["Docker", "Git", "MongoDB", "Docker Compose"],
+    url: "https://blog.devops.dev/containerizing-a-mern-stack-application-and-deploying-using-docker-compose-46b85106039f",
   },
 ];
 
@@ -78,7 +90,7 @@ export const projects = [
 export const socials = [
   {
     name: "GitHub",
-    url: "https://github.com/your-username",
+    url: "https://github.com/wangoimwangi",
   },
   {
     name: "LinkedIn",

@@ -130,3 +130,10 @@ body {
     transform: translateX(100vh);
   }
 }
+
+
+.medium{
+  height: 16px;
+  width: 16px;
+  color:blue;
+}
