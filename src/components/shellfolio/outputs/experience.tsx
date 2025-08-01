@@ -15,10 +15,9 @@ export const Experience = ({ onFinished }: ExperienceProps) => {
     if (visibleExperiences < experiences.length) {
       const timer = setTimeout(() => {
         setVisibleExperiences((prev) => prev + 1);
-      }, 500); // Shortened delay for better UX
+      }, 700);
       return () => clearTimeout(timer);
     } else if (onFinished) {
-      // When all experiences are visible, call onFinished
       const finishTimer = setTimeout(onFinished, 100);
       return () => clearTimeout(finishTimer);
     }
