@@ -26,7 +26,7 @@ const InfoLine = ({ label, value, delay, onFinished }: { label: string; value: s
 
   return visible ? (
     <div className="flex">
-      <span className="w-28 text-muted-foreground">{label}</span>
+      <span className="w-28 text-muted-foreground font-semibold">{label}</span>
       <span>{value}</span>
     </div>
   ) : null;
