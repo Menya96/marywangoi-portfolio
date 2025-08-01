@@ -48,6 +48,14 @@ export const Contact = () => {
         </div>
       </div>
       
+      <div>
+        <h3 className="font-semibold text-primary mb-2">Availability</h3>
+        <div className="text-sm space-y-1">
+            <p>Mon - Fri: 9:00 am – 5:00 pm</p>
+            <p><span className="font-semibold">Emergency Support:</span> 24/7 for clients</p>
+        </div>
+      </div>
+
       <div className="w-full">
         <h3 className="font-semibold text-primary mb-2">...or send a message</h3>
         <form onSubmit={handleSubmit} className="space-y-4 max-w-xl">
