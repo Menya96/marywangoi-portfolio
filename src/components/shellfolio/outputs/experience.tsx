@@ -1,18 +1,28 @@
+"use client";
+
 import { experiences } from "@/lib/data";
 import { Separator } from "@/components/ui/separator";
 import { useState, useEffect } from 'react';
 
-export const Experience = () => {
+interface ExperienceProps {
+  onFinished?: () => void;
+}
+
+export const Experience = ({ onFinished }: ExperienceProps) => {
   const [visibleExperiences, setVisibleExperiences] = useState<number>(0);
 
   useEffect(() => {
     if (visibleExperiences < experiences.length) {
       const timer = setTimeout(() => {
         setVisibleExperiences((prev) => prev + 1);
-      }, 2000);
+      }, 500); // Shortened delay for better UX
       return () => clearTimeout(timer);
+    } else if (onFinished) {
+      // When all experiences are visible, call onFinished
+      const finishTimer = setTimeout(onFinished, 100);
+      return () => clearTimeout(finishTimer);
     }
-  }, [visibleExperiences, experiences.length]);
+  }, [visibleExperiences, experiences.length, onFinished]);
 
   return (
     <div className="space-y-6">
@@ -30,7 +40,7 @@ export const Experience = () => {
               ))}
             </ul>
           </div>
-          {index < visibleExperiences - 1 && <Separator className="mt-6 bg-border/50" />}
+          {index < experiences.length - 1 && index < visibleExperiences -1 && <Separator className="mt-6 bg-border/50" />}
         </div>
       ))}
     </div>

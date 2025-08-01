@@ -25,12 +25,18 @@ export function Terminal() {
   const [isWelcomeFinished, setIsWelcomeFinished] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
+  const scrollToBottom = useCallback(() => {
+    setTimeout(() => {
+      bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  }, []);
+
   const commandMap: Record<string, React.ReactNode> = useMemo(() => ({
-    'whoami': <Whoami />,
+    'whoami': <Whoami onFinished={scrollToBottom} />,
     'skills': <Skills />,
-    'experience': <Experience />,
+    'experience': <Experience onFinished={scrollToBottom} />,
     'generate_ascii_art': <Ascii />,
-  }), []);
+  }), [scrollToBottom]);
 
   const availableCommands = useMemo(() => ['whoami', 'skills', 'experience', 'generate_ascii_art', 'help', 'clear'], []);
   
@@ -58,13 +64,8 @@ export function Terminal() {
   }, [commandMapWithHelp]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (bottomRef.current) {
-        bottomRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 50); // Added a small delay
-    return () => clearTimeout(timer);
-  }, [history]);
+    scrollToBottom();
+  }, [history, scrollToBottom]);
 
   return (
     <div className="rounded-lg border bg-card/20 shadow-lg h-[90vh] flex flex-col">

@@ -32,7 +32,7 @@ export const Skills = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="pb-0 p-0 mt-4">
-        <div className="mx-auto aspect-square h-96 w-156">
+        <div className="mx-auto aspect-square h-80 w-156">
           <ChartContainer config={chartConfig} className="w-full h-full">
             <RadarChart
               data={skills}

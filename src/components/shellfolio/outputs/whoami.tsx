@@ -9,15 +9,20 @@ const iconMap: Record<string, React.ReactNode> = {
   LinkedIn: <Linkedin />,
 };
 
-const InfoLine = ({ label, value, delay }: { label: string; value: string; delay: number }) => {
+interface WhoamiProps {
+  onFinished?: () => void;
+}
+
+const InfoLine = ({ label, value, delay, onFinished }: { label: string; value: string; delay: number, onFinished?: () => void }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(true);
+      onFinished?.();
     }, delay);
     return () => clearTimeout(timer);
-  }, [delay]);
+  }, [delay, onFinished]);
 
   return visible ? (
     <div className="flex">
@@ -27,26 +32,27 @@ const InfoLine = ({ label, value, delay }: { label: string; value: string; delay
   ) : null;
 };
 
-export const Whoami = () => {
+export const Whoami = ({ onFinished }: WhoamiProps) => {
+  const [lastLineVisible, setLastLineVisible] = useState(false);
   const [bioVisible, setBioVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setBioVisible(true), 1200);
-    return () => clearTimeout(timer);
-  }, []);
-  
+    if (lastLineVisible && bioVisible && onFinished) {
+      const timer = setTimeout(onFinished, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [lastLineVisible, bioVisible, onFinished]);
+
   return (
     <div className="space-y-2">
       <InfoLine label="USER:" value={whoamiData.name} delay={0} />
       <InfoLine label="TITLE:" value={whoamiData.title} delay={300} />
       <InfoLine label="STATUS:" value={whoamiData.status} delay={600} />
-      <InfoLine label="LOCATION:" value={whoamiData.location} delay={900} />
+      <InfoLine label="LOCATION:" value={whoamiData.location} delay={900} onFinished={() => setLastLineVisible(true)} />
       
-      {bioVisible && (
-        <div className="pt-2">
-          <p className="whitespace-pre-wrap">{whoamiData.bio}</p>
-        </div>
-      )}
+      <div className="pt-2">
+        <p className="whitespace-pre-wrap">{whoamiData.bio}</p>
+      </div>
 
       <div className="flex items-center gap-4 pt-4">
         {socials.map((social) => (
