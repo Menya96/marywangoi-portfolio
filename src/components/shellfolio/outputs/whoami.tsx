@@ -3,10 +3,12 @@
 import { whoamiData, socials } from "@/lib/data";
 import { Github, Linkedin } from "lucide-react";
 import { useState, useEffect } from 'react';
+import { FaMediumM } from "react-icons/fa";
 
 const iconMap: Record<string, React.ReactNode> = {
   GitHub: <Github />,
   LinkedIn: <Linkedin />,
+  Medium: <FaMediumM />,
 };
 
 interface WhoamiProps {

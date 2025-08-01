@@ -96,4 +96,8 @@ export const socials = [
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/marywangoi/",
   },
+  {
+    name: "Medium",
+    url: "https://mary-wangoi.medium.com/",
+  }
 ];
