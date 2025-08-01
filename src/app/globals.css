@@ -100,6 +100,7 @@ body {
     z-index: -1;
     overflow: hidden;
     color: hsl(var(--primary) / 0.5);
+    opacity: 0.1;
   }
 
   .dark .binary-background {
