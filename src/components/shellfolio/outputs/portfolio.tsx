@@ -3,7 +3,7 @@
 import { projects } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect, useRef } from 'react';
-import { Github } from "lucide-react";
+import { Github, Newspaper } from "lucide-react";
 import { FaMediumM } from "react-icons/fa";
 
 interface PortfolioProps {
@@ -18,7 +18,7 @@ export const Portfolio = ({ onFinished }: PortfolioProps) => {
     if (visibleProjects < projects.length) {
       const timer = setTimeout(() => {
         setVisibleProjects((prev) => prev + 1);
-      }, 2000);
+      }, 700);
       return () => clearTimeout(timer);
     } else if (onFinished) {
       const finishTimer = setTimeout(onFinished, 100);
@@ -47,11 +47,18 @@ export const Portfolio = ({ onFinished }: PortfolioProps) => {
               >
                 {project.url.includes("github.com") ? (
                   <Github size={16} />
-                ) : project.url.includes("medium.com") || project.url.includes("devops.dev") ? (
+                ) : project.url.includes("medium.com") ? (
                   <FaMediumM size={16} />
+                ) : project.url.includes("devops.dev") ? (
+                  <Newspaper size={16} />
                 ) : null}
                 <span className="text-sm">
-                  {project.url.includes("github.com") ? "Source" : project.url.includes("medium.com") || project.url.includes("devops.dev") ? "Article" : "Link"}
+                  {project.url.includes("github.com")
+                    ? "Source"
+                    : project.url.includes("medium.com") ||
+                      project.url.includes("devops.dev")
+                    ? "Article"
+                    : "Link"}
                 </span>
               </a>
             )}

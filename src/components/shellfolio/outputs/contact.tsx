@@ -49,13 +49,24 @@ export const Contact = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // This is a demo. In a real application, you'd handle form submission here.
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you shortly.",
-    });
-    form.reset();
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      if (response.ok) {
+        console.log(result.message); // Or show a success toast
+      } else {
+        console.error(result.message); // Or show an error toast
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error); // Or show an error toast
+    }
   }
 
   return (
