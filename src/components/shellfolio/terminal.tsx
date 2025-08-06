@@ -13,11 +13,13 @@ import { Portfolio } from "./outputs/portfolio";
 import { Contact } from "./outputs/contact";
 import { ThemeToggle } from "../theme-toggle";
 import { BootSequence } from "./boot-sequence";
+import { TypingText } from "./typing-text";
 
 type HistoryItem = {
   id: number;
   command: string;
   Output: React.ReactNode;
+  commandFinished?: boolean;
 };
 
 export function Terminal() {
@@ -47,6 +49,11 @@ export function Terminal() {
     'help': <Help commands={availableCommands} onCommandClick={(cmd) => handleCommandClick(cmd)} />,
   }), [commandMap, availableCommands]);
 
+  const handleCommandFinished = (id: number) => {
+    setHistory(prev => prev.map(item => item.id === id ? { ...item, commandFinished: true } : item));
+    scrollToBottom();
+  };
+
   const handleCommandClick = useCallback((command: string) => {
     if (command === 'clear') {
       setHistory([]);
@@ -54,16 +61,18 @@ export function Terminal() {
     }
     
     if (command in commandMapWithHelp) {
+      const newId = history.length;
       setHistory((prev) => [
         ...prev,
         {
-          id: prev.length,
+          id: newId,
           command,
           Output: commandMapWithHelp[command],
+          commandFinished: false,
         },
       ]);
     }
-  }, [commandMapWithHelp]);
+  }, [commandMapWithHelp, history.length]);
 
   useEffect(() => {
     scrollToBottom();
@@ -95,13 +104,13 @@ export function Terminal() {
           <Welcome onFinished={() => setIsWelcomeFinished(true)} />
         )}
 
-        {history.map(({ id, command, Output }) => (
+        {history.map(({ id, command, Output, commandFinished }) => (
           <div key={id}>
             <div className="flex items-center gap-2">
               <span className="text-primary font-bold">&gt;</span>
-              <span className="font-semibold">{command}</span>
+              <TypingText text={command} onFinished={() => handleCommandFinished(id)} className="font-semibold" speed={25}/>
             </div>
-            <div className="mt-2 pl-4">{Output}</div>
+            {commandFinished && <div className="mt-2 pl-4">{Output}</div>}
           </div>
         ))}
         
