@@ -108,7 +108,7 @@ export function Terminal() {
           <div key={id}>
             <div className="flex items-center gap-2">
               <span className="text-primary font-bold">&gt;</span>
-              <TypingText text={command} onFinished={() => handleCommandFinished(id)} className="font-semibold" speed={25}/>
+              <TypingText text={command} onFinished={() => handleCommandFinished(id)} className="font-semibold" speed={150}/>
             </div>
             {commandFinished && <div className="mt-2 pl-4">{Output}</div>}
           </div>
