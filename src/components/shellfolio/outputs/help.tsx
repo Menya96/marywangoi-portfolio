@@ -15,6 +15,7 @@ export const Help: FC<HelpProps> = ({ onCommandClick, commands }) => {
             <button
               onClick={() => onCommandClick(cmd)}
               className="text-accent hover:underline"
+              data-light-bold data-light-darker
             >
               {cmd}
             </button>

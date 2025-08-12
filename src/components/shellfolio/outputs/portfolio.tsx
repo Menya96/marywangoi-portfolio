@@ -18,7 +18,7 @@ export const Portfolio = ({ onFinished }: PortfolioProps) => {
     if (visibleProjects < projects.length) {
       const timer = setTimeout(() => {
         setVisibleProjects((prev) => prev + 1);
-      }, 700);
+      }, 1000);
       return () => clearTimeout(timer);
     } else if (onFinished) {
       const finishTimer = setTimeout(onFinished, 100);
