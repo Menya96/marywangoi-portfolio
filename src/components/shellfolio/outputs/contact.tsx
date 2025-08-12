@@ -98,7 +98,7 @@ export const Contact = () => {
       </div>
 
       <div className="w-full">
-        <h3 className="font-semibold text-primary mb-2">...or send a message</h3>
+        <h3 className="font-semibold text-primary mb-2">....or send a message</h3>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-w-xl">
             <div className="grid sm:grid-cols-2 gap-4">
