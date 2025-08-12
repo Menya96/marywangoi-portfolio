@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Background } from '@/components/shellfolio/background';
 
 export const metadata: Metadata = {
-  title: 'Shellfolio',
+  title: 'MaryWangoi-Shellfolio',
   description: 'An interactive portfolio with a terminal interface.',
 };
 
